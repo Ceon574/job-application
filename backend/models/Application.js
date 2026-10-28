@@ -74,7 +74,6 @@ const applicationSchema = new mongoose.Schema(
       required: true,
       enum: STATUS_LIST,
       default: 'Applied',
-      index: true,
     },
     followUpDate: {
       type: Date,
