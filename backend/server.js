@@ -59,6 +59,14 @@ app.get('/', (req, res) => {
   });
 });
 
+// Serverless database connection middleware
+app.use(async (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    await connectDB();
+  }
+  next();
+});
+
 // API Routes
 app.use('/api', applicationRoutes);
 

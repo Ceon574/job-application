@@ -9,13 +9,14 @@ import {
   ACTIVE_STATUSES,
   STATUS_LIST,
 } from '../utils/helpers.js';
-import { getDBStatus } from '../config/db.js';
+import { getDBStatus, connectDB } from '../config/db.js';
 
 /**
  * Health check endpoint
  * GET /api/health
  */
 export const getHealth = async (req, res) => {
+  await connectDB();
   const dbStatus = getDBStatus();
   res.status(200).json({
     success: true,
