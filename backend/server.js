@@ -73,6 +73,16 @@ const startServer = async () => {
     console.log(`🚀 Job Application Tracker API running on http://localhost:${PORT}`);
   });
 
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`❌ Port ${PORT} is already in use by another process.`);
+      console.error(`👉 Run 'Stop-Process -Id <PID> -Force' or specify a different PORT in backend/.env (e.g. PORT=5001).`);
+      process.exit(1);
+    } else {
+      console.error(`❌ Server error: ${err.message}`);
+    }
+  });
+
   // Handle unhandled promise rejections
   process.on('unhandledRejection', (err) => {
     console.error(`Unhandled Rejection: ${err.message}`);
