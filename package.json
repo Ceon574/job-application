@@ -1,0 +1,23 @@
+{
+  "name": "job-application-tracker",
+  "version": "1.0.0",
+  "description": "Full Stack MERN Job Application Tracker for Final Assessment",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "start:backend": "npm start --prefix backend",
+    "start:frontend": "npm run dev --prefix frontend",
+    "test": "npm test --prefix backend",
+    "build": "npm run build --prefix frontend"
+  },
+  "keywords": [
+    "mern",
+    "react",
+    "express",
+    "mongodb-atlas",
+    "tailwind-css",
+    "job-tracker"
+  ],
+  "author": "Ceon574",
+  "license": "ISC"
+}
